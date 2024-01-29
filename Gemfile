@@ -67,3 +67,16 @@ group :development do
   # gem "spring"
 end
 
+group :development, :test do
+  gem "rspec-rails" 
+  gem "factory_bot_rails"
+end
+
+group :test do
+  gem "capybara", "~>3.39"
+  gem "cuprite"
+  gem "orderly", "~> 0.1"
+end
+
+
+gem "devise", "~> 4.9"
