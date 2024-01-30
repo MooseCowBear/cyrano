@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     @user = create(:user)
   end
 
-  describe ".working?" do
+  describe "#working?" do
     it "returns true if user has a profile" do
       create(:profile, user: @user)
       expect(@user.working?).to be true
