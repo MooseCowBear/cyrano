@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :profile do
-    user 
+    user
     username { "test username" }
     description { "test description" }
   end

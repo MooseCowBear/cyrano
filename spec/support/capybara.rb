@@ -4,7 +4,7 @@ Capybara.disable_animation = true
 
 Capybara.javascript_driver = :cuprite
 Capybara.register_driver(:cuprite) do |app|
-  Capybara::Cuprite::Driver.new(app, inspector: ENV['INSPECTOR'])
+  Capybara::Cuprite::Driver.new(app, inspector: ENV["INSPECTOR"])
 end
 
 RSpec.configure do |config|
