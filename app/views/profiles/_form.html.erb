@@ -1,0 +1,12 @@
+<%= form_with model: @profile do |form| %>
+  <%= form.label :username, 'Username' %>
+  <%= form.text_field :username %>
+
+  <%= form.label :display_name, 'Display Name (if different than Username)' %>
+  <%= form.text_field :display_name %>
+
+  <%= form.label :pronouns, 'Pronouns' %>
+  <%= form.text_field :pronouns %>
+
+  <%= form.submit %>
+<% end %>
