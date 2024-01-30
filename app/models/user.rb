@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  def writer?
-    # a user is a writer IFF they have a profile
+  def working?
     !!profile
   end
 end

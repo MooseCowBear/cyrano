@@ -33,6 +33,11 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full" %>
         </div>
 
+        <div class="field flex gap-2 items-center">
+          <%= f.check_box :writer, checked: params[:writer], class: "text-neutral-950" %>
+          <%= f.label :writer, "I want to write" %>
+        </div>
+
         <div class="actions">
           <%= f.submit "Sign up", class: "border-2 border-neutral-950 w-full py-1 hover:bg-neutral-950 hover:text-neutral-50 hover:cursor-pointer" %>
         </div>

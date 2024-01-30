@@ -12,5 +12,5 @@
   <%= image_tag "quote-right-solid.svg", class: "translate-y-[-10%] sm:translate-y-[0%]" %>
 
   <button class="border-2 py-1 hover:bg-neutral-200">Find a writer</button>
-  <button class="border-2 py-1 hover:bg-neutral-200">Become a writer</button>
+  <%= link_to "Become a writer", new_user_registration_path, class: "border-2 py-1 hover:bg-neutral-200 text-center" %>
 </div>

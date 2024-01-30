@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
   # want to redirect to dashboard IF user was on the root path
   # otherwise, want to redirect to the location they were on when they were prompted to sign in
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:writer])
+  end
 
   private
 
