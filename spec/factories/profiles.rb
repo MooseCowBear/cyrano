@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :profile do
-    user { nil }
-    username { "MyString" }
-    description { "MyText" }
+    user 
+    username { "test username" }
+    description { "test description" }
   end
 end
