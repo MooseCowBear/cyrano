@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
   describe 'valid attributes' do
-    it 'is valid when it has a unique username' do
+    it 'is valid when it has a unique username under 50 chars' do
       profile = build(:profile)
       expect(profile).to be_valid
     end
@@ -11,6 +11,16 @@ RSpec.describe Profile, type: :model do
       profile1 = create(:profile)
       profile2 = build(:profile)
       expect(profile2).not_to be_valid
+    end
+
+    it 'is invalid when username is more than 50 chars' do
+      profile = build(:profile, username: 'a' * 51)
+      expect(profile).not_to be_valid
+    end
+
+    it 'in invalid when display name is more than 50 chars' do
+      profile = build(:profile, display_name: 'a' * 51)
+      expect(profile).not_to be_valid
     end
 
     it 'strips white space from username before save' do
