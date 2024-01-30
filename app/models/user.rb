@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+
+  def writer?
+    # a user is a writer IFF they have a profile
+    !!profile
+  end
 end
