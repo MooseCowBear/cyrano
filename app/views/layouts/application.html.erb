@@ -20,7 +20,7 @@
         </svg>
       </div>
       <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "uppercase tracking-wide" %>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "uppercase tracking-wide" %>
       <% else %>
         <%= link_to "Sign in", new_user_session_path, class: "uppercase tracking-wide" %>
       <% end %>
