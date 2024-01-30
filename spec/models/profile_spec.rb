@@ -23,6 +23,11 @@ RSpec.describe Profile, type: :model do
       expect(profile).not_to be_valid
     end
 
+    it "is invalid when description is more than 3000 chars" do
+      profile = build(:profile, description: "a" * 3001)
+      expect(profile).not_to be_valid
+    end
+
     it "strips white space from username before save" do
       profile = create(:profile, username: "   extra spaces   ")
       profile.reload
