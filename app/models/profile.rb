@@ -7,6 +7,14 @@ class Profile < ApplicationRecord
 
   before_save :clean_username
 
+  def initial
+    if display_name
+      display_name[0]
+    else
+      username[0]
+    end
+  end
+
   private
 
   def clean_username

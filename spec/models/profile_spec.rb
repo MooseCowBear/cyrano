@@ -6,7 +6,9 @@ RSpec.describe Profile, type: :model do
       profile = build(:profile)
       expect(profile).to be_valid
     end
+  end
 
+  describe "invalid attributes" do
     it "is invalid when username has been taken" do
       create(:profile)
       profile2 = build(:profile)
@@ -27,7 +29,9 @@ RSpec.describe Profile, type: :model do
       profile = build(:profile, description: "a" * 3001)
       expect(profile).not_to be_valid
     end
+  end
 
+  describe "before action" do
     it "strips white space from username before save" do
       profile = create(:profile, username: "   extra spaces   ")
       profile.reload
@@ -39,6 +43,18 @@ RSpec.describe Profile, type: :model do
       profile = create(:profile, username: test_username)
       profile.reload
       expect(profile.username).to eq test_username.downcase
+    end
+  end
+
+  describe "#initial" do
+    it "returns the first char of display name if present" do
+      profile = build(:profile, username: "Olive")
+      expect(profile.initial).to eq "O"
+    end
+
+    it "returns the first char of username if no display name" do
+      profile = build(:profile, display_name: "Molly")
+      expect(profile.initial).to eq "M"
     end
   end
 end
