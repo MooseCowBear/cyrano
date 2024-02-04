@@ -3,7 +3,7 @@ class Profile < ApplicationRecord
 
   validates :username, uniqueness: true, length: {maximum: 50}
   validates :display_name, length: {maximum: 50}
-  validates :description, length: {maximum: 3000}
+  validates :about, length: {maximum: 3000}
 
   before_save :clean_username
 
