@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:edit, :update, :destroy]
+  before_action :set_profile, only: [:edit, :update, :destroy, :show]
   before_action only: [:edit, :update, :destroy] do
     confirm_ownership(@profile, "Only the owner of a profile can modify it.")
   end
@@ -36,6 +36,9 @@ class ProfilesController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def show
+  end
+
   private
 
   def profile_params
@@ -43,6 +46,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile
-    @profile
+    @profile = Profile.find(params[:id])
+    pp @profile
   end
 end
