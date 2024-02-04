@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
 
+  def confirm_ownership(elem, message)
+    if elem.user != current_user
+      flash[:alert] = message
+      redirect_to root_path
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
