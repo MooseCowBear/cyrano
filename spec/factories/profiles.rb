@@ -3,6 +3,6 @@ FactoryBot.define do
     user
     username { "test username" }
     display_name { nil }
-    description { "test description" }
+    about { "test about" }
   end
 end

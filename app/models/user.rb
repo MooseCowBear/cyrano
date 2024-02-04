@@ -9,4 +9,12 @@ class User < ApplicationRecord
   def working?
     !!profile
   end
+
+  def initial
+    if profile
+      profile.initial
+    else
+      email[0]
+    end
+  end
 end

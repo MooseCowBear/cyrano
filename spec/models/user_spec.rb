@@ -15,4 +15,15 @@ RSpec.describe User, type: :model do
       expect(@user.working?).to be false
     end
   end
+
+  describe "#initial" do
+    it "returns profile initial if user has profile" do
+      create(:profile, user: @user, display_name: "display")
+      expect(@user.initial).to eq "d"
+    end
+
+    it "returns first letter of email if user has no profile" do
+      expect(@user.initial).to eq "p"
+    end
+  end
 end
