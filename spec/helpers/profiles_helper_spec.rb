@@ -11,5 +11,15 @@ require "rails_helper"
 #   end
 # end
 RSpec.describe ProfilesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "name" do
+    it "returns display name if there is one" do
+      profile = create(:profile, display_name: "display name")
+      expect(name(profile)).to eq "display name"
+    end
+
+    it "returns username if no display name" do
+      profile = create(:profile, username: "username")
+      expect(name(profile)).to eq "username"
+    end
+  end
 end
