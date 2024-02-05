@@ -1,2 +1,62 @@
-<div class="">
+<div class="w-full flex flex-col gap-4">
+  <div class="grid grid-cols-[3fr_,2fr] gap-4">
+    <section class="p-5 shadow-md border border-neutral-200">
+      <h3 class="uppercase tracking-wider font-semibold mb-1">About Me</h3>
+      <%= render "profiles/profile", profile: current_user.profile %>
+      <% if current_user.profile %>
+        <%= link_to "Update Profile", edit_profile_path(current_user.profile), class: "float-right tracking-wide border rounded-full py-1 px-5 border-neutral-700 py-1 hover:bg-neutral-700 hover:text-neutral-50" %>
+      <% else %>
+        <%= link_to "Create Profile", new_profile_path, class: "float-right tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
+      <% end %>
+      
+    </section>
+    <section class="p-5 flex flex-col gap-1 shadow-md border border-neutral-200">
+      <h3 class="uppercase tracking-wider font-semibold">Specialties</h3>
+      <!-- TODO: currently placeholder, update -->
+      <div class="flex flex-wrap gap-3">
+        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">humor</span>
+        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">product descriptions</span>
+        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">long-form commentary</span>
+        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">opinion pieces</span>
+        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">descriptive story telling</span>
+      </div>
+    </section>
+  </div>
+  <section class="flex flex-col gap-1">
+    <h3 class="uppercase tracking-wider font-semibold">I write</h3>
+    <div class="overflow-x-auto w-full flex gap-3">
+      <!-- TODO: currently placeholder -->
+      <div class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3 ">
+        <div>
+          <h4 class="uppercase tracking-wider font-semibold mb-2">product 1</h4>
+          <p class="text-neutral-500 leading-tight max-h-32">description of this product with an estimated word count</p>
+        </div>
+        <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$40</p>
+      </div>
+      <div class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3">
+        <div>
+          <h4 class="uppercase tracking-wider font-semibold mb-2">product 2</h4>
+          <p class="text-neutral-500 leading-tight max-h-32">description of this product with an estimated word count that is even longer than the first so that we can see what happens when the description is very long</p>
+        </div>
+        <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$40</p>
+      </div>
+      <div class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3">
+        <div>
+          <h4 class="uppercase tracking-wider font-semibold mb-2">product 3</h4>
+          <p class="text-neutral-500 leading-tight max-h-32">description of this product with an estimated word count</p>
+        </div>
+        <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$40</p>
+      </div>
+    </div>
+    <button class="self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50">
+      Add a product
+    </button>
+  </section>
+  <section>
+    <h3 class="uppercase tracking-wider font-semibold">My Assignments</h3>
+    <div class="overflow-x-auto">
+      <table>
+      </table>
+    </div>
+  </section>
 </div>
