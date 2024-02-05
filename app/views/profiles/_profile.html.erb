@@ -1,0 +1,12 @@
+<div class="grid grid-cols-[auto,_1fr] gap-4">
+  <span class="h-12 w-12 rounded-full bg-seafoam-100 text-2xl text-neutral-50 font-semibold lowercase flex items-center justify-center">
+    <%= profile.initial %>
+  </span>
+  <div class="flex items-center gap-1 border-b-2 border-neutral-700">
+    <h2 class="text-2xl font-semibold"><%= name(profile) %></h2>
+    <span>(<%= profile.pronouns %>)</span>
+  </div>
+  <p class="col-start-2">
+    <%= profile.about %>
+  </p>
+</div>
