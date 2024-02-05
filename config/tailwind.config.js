@@ -11,6 +11,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        syne: ["Syne", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
       },
       colors: {
         seafoam: {

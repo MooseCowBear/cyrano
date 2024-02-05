@@ -6,23 +6,23 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "flex flex-col gap-2" }) do |f| %>
         <div class="field">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full border-neutral-700" %>
         </div>
 
         <div class="field">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: "w-full" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "w-full border-neutral-700" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
           <div class="field flex gap-2 items-center">
-            <%= f.check_box :remember_me, class: "text-neutral-950" %>
+            <%= f.check_box :remember_me, class: "text-neutral-700" %>
             <%= f.label :remember_me %>
           </div>
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in", class: "border-2 border-neutral-950 w-full py-1 hover:bg-neutral-950 hover:text-neutral-50 hover:cursor-pointer" %>
+          <%= f.submit "Log in", class: "w-full tracking-wide border rounded-full py-1 border-neutral-700 py-1 hover:bg-neutral-700 hover:text-neutral-50 hover:cursor-pointer" %>
         </div>
       <% end %>
     </div>

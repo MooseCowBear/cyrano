@@ -9,7 +9,7 @@
           <% f.object.errors.full_messages_for(:email).each do |msg| %>
             <span class="text-pink-500 text-sm lowercase"><%= msg %></span>
           <% end %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-full" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"w-full border-neutral-700" %>
         </div>
 
         <div class="field flex flex-col">
@@ -22,7 +22,7 @@
           <% f.object.errors.full_messages_for(:password).each do |msg| %>
             <span class="text-pink-500 text-sm lowercase"><%= msg %></span>
           <% end %>
-          <%= f.password_field :password, autocomplete: "new-password", class:"w-full" %>
+          <%= f.password_field :password, autocomplete: "new-password", class:"w-full border-neutral-700" %>
         </div>
 
         <div class="field flex flex-col">
@@ -30,16 +30,16 @@
           <% f.object.errors.full_messages_for(:password_confirmation).each do |msg| %>
             <span class="text-pink-500 text-sm lowercase"><%= msg %></span>
           <% end %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full border-neutral-700" %>
         </div>
 
         <div class="field flex gap-2 items-center">
-          <%= f.check_box :writer, checked: params[:writer], class: "text-neutral-950" %>
+          <%= f.check_box :writer, checked: params[:writer], class: "text-neutral-700" %>
           <%= f.label :writer, "I want to write" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up", class: "border-2 border-neutral-950 w-full py-1 hover:bg-neutral-950 hover:text-neutral-50 hover:cursor-pointer" %>
+          <%= f.submit "Sign up", class: "w-full tracking-wide border rounded-full py-1 border-neutral-700 py-1 hover:bg-neutral-700 hover:text-neutral-50 hover:cursor-pointer" %>
         </div>
       <% end %>
     </div>
