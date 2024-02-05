@@ -18,7 +18,7 @@ RSpec.describe ProfilesHelper, type: :helper do
     end
 
     it "returns username if no display name" do
-      profile = create(:profile, username: "username")
+      profile = create(:profile, username: "username", display_name: "")
       expect(name(profile)).to eq "username"
     end
   end

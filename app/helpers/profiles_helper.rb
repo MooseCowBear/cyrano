@@ -1,9 +1,5 @@
 module ProfilesHelper
   def name(profile)
-    if profile.display_name
-      profile.display_name
-    else
-      profile.username
-    end
+    profile.display_name || profile.username
   end
 end

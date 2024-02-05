@@ -26,7 +26,7 @@ RSpec.describe Profile, type: :model do
     end
 
     it "is invalid when description is more than 3000 chars" do
-      profile = build(:profile, description: "a" * 3001)
+      profile = build(:profile, about: "a" * 3001)
       expect(profile).not_to be_valid
     end
   end
@@ -47,12 +47,12 @@ RSpec.describe Profile, type: :model do
   end
 
   describe "#initial" do
-    it "returns the first char of display name if present" do
-      profile = build(:profile, username: "Olive")
+    it "returns the first char of username name if no display name" do
+      profile = build(:profile, username: "Olive", display_name: nil)
       expect(profile.initial).to eq "O"
     end
 
-    it "returns the first char of username if no display name" do
+    it "returns the first char of display name if present" do
       profile = build(:profile, display_name: "Molly")
       expect(profile.initial).to eq "M"
     end
