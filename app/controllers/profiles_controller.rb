@@ -47,6 +47,5 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find(params[:id])
-    pp @profile
   end
 end
