@@ -4,9 +4,12 @@ class Profile < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: {in: 1..50}
   validates :display_name, length: {in: 1..50}, allow_blank: true
   validates :about, length: {maximum: 3000}
+  validates :specialties, length: {maximum: 5, too_long: "is too long (5 is the maximum allowed)"}
 
   before_save :clean_username
   before_save :clean_display_name
+
+  serialize :specialties, Array
 
   def initial
     if display_name
