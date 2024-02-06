@@ -18,7 +18,7 @@ RSpec.describe "Profiles", type: :request do
       it "returns http success" do
         expect {
           post profiles_path, params: {
-            profile: { username: "test username", display_name: "" }
+            profile: {username: "test username", display_name: ""}
           }
         }.to change(Profile, :count).by(1)
       end
@@ -28,7 +28,7 @@ RSpec.describe "Profiles", type: :request do
       it "renders new" do
         expect {
           post profiles_path, params: {
-            profile: { display_name: "test display name" }
+            profile: {display_name: "test display name"}
           }
         }.to change(Profile, :count).by(0)
       end
@@ -54,7 +54,7 @@ RSpec.describe "Profiles", type: :request do
     context "with valid params" do
       it "returns http success" do
         patch profile_path(@profile), params: {
-          profile: { display_name: "test update"}
+          profile: {display_name: "test update"}
         }
         @profile.reload
         expect(@profile.display_name).to eq "test update"
@@ -64,7 +64,7 @@ RSpec.describe "Profiles", type: :request do
     context "with invalid params" do
       it "renders edit" do
         patch profile_path(@profile), params: {
-          profile: { username: ""}
+          profile: {username: ""}
         }
         @profile.reload
         expect(@profile.username).to eq "test"
@@ -75,7 +75,7 @@ RSpec.describe "Profiles", type: :request do
       it "redirects to root" do
         profile = create(:profile)
         patch profile_path(profile), params: {
-          profile: { username: ""}
+          profile: {username: ""}
         }
         expect(response).to redirect_to(root_path)
       end
@@ -89,7 +89,6 @@ RSpec.describe "Profiles", type: :request do
         delete profile_path(profile)
       }.to change(Profile, :count).by(-1)
     end
-  
 
     it "redirects to root if try to destroy profile not owned by user" do
       profile = create(:profile)

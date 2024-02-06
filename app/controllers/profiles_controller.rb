@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(with_specialties_array) 
+    @profile = Profile.new(with_specialties_array)
     @profile.user = current_user
 
     if @profile.save

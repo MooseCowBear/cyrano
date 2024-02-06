@@ -4,10 +4,10 @@ FactoryBot.define do
     username { "test username" }
     display_name { "test display name" }
     about { "test about" }
-    specialties {[]}
+    specialties { [] }
   end
 
-  trait :with_specialties do 
+  trait :with_specialties do
     specialties { ["one", "two"] }
   end
 end
