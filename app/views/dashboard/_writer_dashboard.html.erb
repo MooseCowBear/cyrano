@@ -17,11 +17,9 @@
       <h3 class="uppercase tracking-wider font-semibold">Specialties</h3>
       <!-- TODO: currently placeholder, update -->
       <div class="flex flex-wrap gap-3">
-        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">humor</span>
-        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">product descriptions</span>
-        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">long-form commentary</span>
-        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">opinion pieces</span>
-        <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100">descriptive story telling</span>
+        <% current_user.specialties.each do |specialty| %>
+          <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100"><%= specialty %></span>
+        <% end %>
       </div>
     </section>
   </div>

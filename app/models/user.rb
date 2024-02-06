@@ -17,4 +17,12 @@ class User < ApplicationRecord
       email[0]
     end
   end
+
+  def specialties
+    if profile
+      profile.specialties
+    else
+      []
+    end
+  end
 end

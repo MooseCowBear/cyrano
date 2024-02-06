@@ -26,4 +26,18 @@ RSpec.describe User, type: :model do
       expect(@user.initial).to eq "p"
     end
   end
+
+  describe "#specialties" do
+    it "returns profile specialties if user has a profile" do
+      create(:profile, :with_specialties, user: @user)
+      expected = ["one", "two"]
+      @user.specialties.each_with_index do |s, index|
+        expect(s).to eq expected[index]
+      end
+    end
+
+    it "returns empty array if user has no profile" do
+      expect(@user.specialties).to eq []
+    end
+  end
 end
