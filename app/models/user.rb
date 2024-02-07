@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :products, foreign_key: :writer_id, dependent: :destroy
+  has_many :writing_samples, foreign_key: :writer_id, dependent: :destroy
 
   def working?
     !!profile
