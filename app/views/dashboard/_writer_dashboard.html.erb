@@ -1,57 +1,38 @@
-<div class="w-full flex flex-col gap-4">
-  <div class="grid grid-cols-1 sm:grid-cols-[3fr_,2fr] gap-4">
-    <section class="grid grid-rows-[auto,_1fr] p-5 shadow-md border border-neutral-200">
-      <h3 class="uppercase tracking-wider font-semibold mb-1">About Me</h3>
-      <div class="flex flex-col gap-3 justify-between">
-        <%= render "profiles/profile", profile: current_user.profile %>
-        <% if current_user.profile %>
-          <%= link_to "Update Profile", edit_profile_path(current_user.profile), class: "self-end tracking-wide border rounded-full py-1 px-5 border-neutral-700 py-1 hover:bg-neutral-700 hover:text-neutral-50" %>
-        <% else %>
-          <%= link_to "Create Profile", new_profile_path, class: "self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
-        <% end %>
-      </div>
-    </section>
+<div class="w-full flex flex-col gap-1">
+  <div class="flex flex-col gap-3">
+    <div class="grid grid-cols-1 sm:grid-cols-[3fr_,2fr] gap-4">
+      <section class="grid grid-rows-[auto,_1fr] p-5 shadow-md border border-neutral-200">
+        <h3 class="uppercase tracking-wider font-semibold mb-1">About Me</h3>
+        <div class="flex flex-col gap-3 justify-between">
+          <%= render "profiles/profile", profile: current_user.profile %>
+          <% if current_user.profile %>
+            <%= link_to "Update Profile", edit_profile_path(current_user.profile), class: "self-end tracking-wide border rounded-full py-1 px-5 border-neutral-700 py-1 hover:bg-neutral-700 hover:text-neutral-50" %>
+          <% else %>
+            <%= link_to "Create Profile", new_profile_path, class: "self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
+          <% end %>
+        </div>
+      </section>
 
-    <!-- TODO: where to incorporate writing samples??? -->
-    <section class="p-5 flex flex-col gap-1 shadow-md border border-neutral-200">
-      <h3 class="uppercase tracking-wider font-semibold">Specialties</h3>
-      <!-- TODO: currently placeholder, update -->
-      <div class="flex flex-wrap gap-3">
-        <% current_user.specialties.each do |specialty| %>
-          <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100"><%= specialty %></span>
-        <% end %>
-      </div>
-    </section>
+      <!-- TODO: where to incorporate writing samples??? -->
+      <section class="p-5 flex flex-col gap-1 shadow-md border border-neutral-200">
+        <h3 class="uppercase tracking-wider font-semibold">Specialties</h3>
+        <div class="flex flex-wrap gap-3">
+          <% current_user.specialties.each do |specialty| %>
+            <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100"><%= specialty %></span>
+          <% end %>
+        </div>
+      </section>
+    </div>
+    <button class="self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50">View My Public Page</button>
   </div>
   <section class="flex flex-col gap-1">
     <h3 class="uppercase tracking-wider font-semibold">I write</h3>
     <div class="overflow-x-auto w-full flex gap-3">
-      <!-- TODO: currently placeholder -->
-      <div class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3 ">
-        <div>
-          <h4 class="uppercase tracking-wider font-semibold mb-2">product 1</h4>
-          <p class="text-neutral-500 leading-tight max-h-32">description of this product with an estimated word count</p>
-        </div>
-        <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$40</p>
-      </div>
-      <div class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3">
-        <div>
-          <h4 class="uppercase tracking-wider font-semibold mb-2">product 2</h4>
-          <p class="text-neutral-500 leading-tight max-h-32">description of this product with an estimated word count that is even longer than the first so that we can see what happens when the description is very long</p>
-        </div>
-        <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$40</p>
-      </div>
-      <div class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3">
-        <div>
-          <h4 class="uppercase tracking-wider font-semibold mb-2">product 3</h4>
-          <p class="text-neutral-500 leading-tight max-h-32">description of this product with an estimated word count</p>
-        </div>
-        <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$40</p>
-      </div>
+      <% current_user.products.each do |product| %>
+        <%= render "product", product: product %>
+      <% end %>
     </div>
-    <button class="self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50">
-      Add a product
-    </button>
+    <%= link_to "Add a product", new_product_path, class:"self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
   </section>
   <section>
     <h3 class="uppercase tracking-wider font-semibold">My Assignments</h3>
@@ -90,7 +71,13 @@
                   <td class="whitespace-nowrap px-6 py-4">Larry</td>
                   <td class="whitespace-nowrap px-6 py-4">Wild</td>
                   <td class="whitespace-nowrap px-6 py-4">@twitter</td>
-                  <td class="whitespace-nowrap px-6 py-4"><button>details</button></td>
+                  <td class="whitespace-nowrap px-6 py-4">
+                    <button>
+                      <svg class="h-6 w-6 fill-neutral-950" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="" d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" />
+                      </svg>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>

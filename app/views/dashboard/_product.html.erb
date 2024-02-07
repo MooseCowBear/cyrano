@@ -1,0 +1,9 @@
+<div id="<%= dom_id(product) %>" class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3 ">
+  <div>
+    <%= link_to product.title, product_path(product), class: "uppercase tracking-wider font-semibold mb-2 hover:text-seafoam-100" %>
+    <p class="text-neutral-500 leading-tight max-h-32 overflow-y-auto"><%= product.description %></p>
+  </div>
+  <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$<%= product.price %></p>
+</div>
+
+<!-- TODO: need to have these link to the product page, which will contain sales/view information -->
