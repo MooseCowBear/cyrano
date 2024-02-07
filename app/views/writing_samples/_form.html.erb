@@ -1,0 +1,35 @@
+<%= form_with model: writing_sample, class: "flex flex-col gap-2" do |form| %>
+  <div class="flex flex-col gap-1">
+    <div class="flex gap-1 justify-between">
+      <%= form.label :title, "Title", class: "lowercase" %>
+      <% form.object.errors.full_messages_for(:title).each do |msg| %>
+        <span class="text-pink-500 text-sm lowercase"><%= msg %></span>
+      <% end %>
+    </div>
+    <%= form.text_field :title, class: "w-full border-neutral-700" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <div class="flex gap-1 justify-between">
+      <%= form.label :body, "Description", class: "lowercase" %>
+      <% form.object.errors.full_messages_for(:body).each do |msg| %>
+        <span class="text-pink-500 text-sm lowercase"><%= msg %></span>
+      <% end %>
+    </div>
+    <%= form.text_area :body, class: "w-full border-neutral-700" %>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <div class="flex gap-1 justify-between">
+      <%= form.label :tags, "Specialties", class: "lowercase" %>
+      <% form.object.errors.full_messages_for(:tags).each do |msg| %>
+        <span class="text-pink-500 text-sm lowercase"><%= msg %></span>
+      <% end %>
+    </div>
+    <div>
+    <%= form.text_area :tags, value: writing_sample.tags.join(", "), class: "w-full border-neutral-700" %>
+    <small>Enter up to 5 tags as a comma separated list</small>
+  </div>
+
+  <%= form.submit class: "w-full tracking-wide border rounded-full py-1 border-neutral-700 py-1 hover:bg-neutral-700 hover:text-neutral-50 hover:cursor-pointer" %>
+<% end %>

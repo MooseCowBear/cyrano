@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:new, :edit, :create, :update, :destroy, :show]
   resources :products
+  resources :writing_samples
 
   root "home#index"
 end
