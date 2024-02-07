@@ -5,6 +5,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :products, foreign_key: :writer_id, dependent: :destroy
 
   def working?
     !!profile

@@ -4,4 +4,8 @@ FactoryBot.define do
     password { "123456" }
     writer { true }
   end
+
+  trait :client do
+    writer { false }
+  end
 end
