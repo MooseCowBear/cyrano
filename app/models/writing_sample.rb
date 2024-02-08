@@ -6,6 +6,8 @@ class WritingSample < ApplicationRecord
 
   serialize :tags, Array
 
+  scope :selected, -> { where(selected: true) }
+
   # so can keep one confirm ownership method
   def user
     writer

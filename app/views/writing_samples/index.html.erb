@@ -4,24 +4,27 @@
   <%= link_to "Add a sample", new_writing_sample_path %>
 </div>
 
-<!-- change to a drop down selector -->
-<ul class="border w-full grid grid-cols-3 justify-items-center items-center">
-  <li>
+<ul class="w-11/12 grid grid-cols-2 gap-5">
+  <li class="w-full flex justify-center items-center gap-1 border rounded-t-md bg-neutral-100 py-1">
+    <% unless params[:selected] %>
+      <svg class="h-2 w-2 fill-neutral-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+      </svg>
+    <% end %>
     <%= link_to "All",
       writing_samples_path,
-      class: "" 
+      class: "tracking-wider" 
     %>
   </li>
-  <li>
+  <li class="w-full flex justify-center items-center gap-1 border rounded-t-md bg-neutral-100 py-1">
+    <% if params[:selected] %>
+      <svg class="h-2 w-2 fill-neutral-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+      </svg>
+    <% end %>
     <%= link_to "Selected",
-      writing_samples_path(status: 1),
-      class: "" 
-    %>
-  </li>
-  <li>
-    <%= link_to "WIP",
-      writing_samples_path(status: 2),
-      class: "" 
+      writing_samples_path(selected: true),
+      class: "tracking-wider" 
     %>
   </li>
 </ul>

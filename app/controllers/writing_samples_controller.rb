@@ -5,7 +5,11 @@ class WritingSamplesController < ApplicationController
   end
 
   def index
-    @writing_samples = current_user.writing_samples
+    if params[:selected]
+      @writing_samples = current_user.writing_samples.selected
+    else
+      @writing_samples = current_user.writing_samples
+    end
   end
 
   def show
