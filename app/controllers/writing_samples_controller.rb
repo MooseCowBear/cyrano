@@ -55,6 +55,6 @@ class WritingSamplesController < ApplicationController
 
   # can this and profile specialties be DRYed out?
   def with_tags_array
-    writing_sample_params_params.merge(tags: writing_sample_params[:tags].split(/\s*,\s*/))
+    writing_sample_params.merge(tags: writing_sample_params[:tags].split(/\s*,\s*/))
   end
 end
