@@ -6,8 +6,8 @@ class Profile < ApplicationRecord
   validates :about, length: {maximum: 3000}
   validates :specialties, length: {maximum: 5, too_long: "is too long (5 is the maximum allowed)"}
 
-  before_save :clean_username
-  before_save :clean_display_name
+  before_validation :clean_username
+  before_validation :clean_display_name
 
   serialize :specialties, Array
 
