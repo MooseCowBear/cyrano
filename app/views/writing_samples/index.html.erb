@@ -1,7 +1,10 @@
 <%= render "shared/tabs", active_tab: "samples" %>
-<div class="w-full flex items-baseline gap-5 mt-5">
-  <h1 class="text-3xl font-semibold uppercase tracking-wider">My Samples</h1>
-  <%= link_to "Add a sample", new_writing_sample_path %>
+<div class="w-full flex justify-between items-center gap-5 mt-5">
+  <div class="flex items-center gap-5">
+    <h1 class="text-3xl font-semibold uppercase tracking-wider">My Samples</h1>
+    <%= link_to "Add a sample", new_writing_sample_path %>
+  </div>
+  <%= render "help" %>
 </div>
 
 <ul class="w-11/12 grid grid-cols-2 gap-5">
