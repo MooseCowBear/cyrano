@@ -1,0 +1,4 @@
+<%= turbo_stream.replace "#{dom_id(@writing_sample)}" do %>
+  <%= render partial: "writing_sample", locals: { writing_sample: @writing_sample } %>
+<% end %>
+<%= turbo_stream.update "flash", partial: "layouts/flash" %>

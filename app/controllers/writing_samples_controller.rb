@@ -5,10 +5,10 @@ class WritingSamplesController < ApplicationController
   end
 
   def index
-    if params[:selected]
-      @writing_samples = current_user.writing_samples.selected
+    @writing_samples = if params[:selected]
+      current_user.writing_samples.selected
     else
-      @writing_samples = current_user.writing_samples
+      current_user.writing_samples
     end
   end
 
@@ -24,7 +24,7 @@ class WritingSamplesController < ApplicationController
     @writing_sample.writer = current_user
 
     if @writing_sample.save
-      redirect_to @writing_sample, notice: "Sample created."
+      redirect_to writing_samples_path, notice: "Sample created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +35,10 @@ class WritingSamplesController < ApplicationController
 
   def update
     if @writing_sample.update(with_tags_array)
-      redirect_to @writing_sample, notice: "Sample updated"
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to writing_samples_path, notice: "Sample updated" }
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -60,8 +63,9 @@ class WritingSamplesController < ApplicationController
   # can this and profile specialties be DRYed out?
   def with_tags_array
     if writing_sample_params[:tags]
-      writing_sample_params.merge!(tags: writing_sample_params[:tags].split(/\s*,\s*/))
+      writing_sample_params.merge(tags: writing_sample_params[:tags].split(/\s*,\s*/))
+    else
+      writing_sample_params
     end
-    writing_sample_params
   end
 end
