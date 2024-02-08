@@ -1,4 +1,31 @@
-<div>
-  <h1 class="font-bold text-4xl">WritingSamples#index</h1>
-  <p>Find me in app/views/writing_samples/index.html.erb</p>
+<%= render "shared/tabs", active_tab: "samples" %>
+<div class="w-full flex items-baseline gap-5 mt-5">
+  <h1 class="text-3xl font-semibold uppercase tracking-wider">My Samples</h1>
+  <%= link_to "Add a sample", new_writing_sample_path %>
+</div>
+
+<!-- change to a drop down selector -->
+<ul class="border w-full grid grid-cols-3 justify-items-center items-center">
+  <li>
+    <%= link_to "All",
+      writing_samples_path,
+      class: "" 
+    %>
+  </li>
+  <li>
+    <%= link_to "Selected",
+      writing_samples_path(status: 1),
+      class: "" 
+    %>
+  </li>
+  <li>
+    <%= link_to "WIP",
+      writing_samples_path(status: 2),
+      class: "" 
+    %>
+  </li>
+</ul>
+
+<div id="shoes" class="flex flex-col gap-2">
+  <%= render @writing_samples %>
 </div>

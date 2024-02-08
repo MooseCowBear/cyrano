@@ -5,4 +5,9 @@ class WritingSample < ApplicationRecord
   validates :tags, length: {maximum: 5, too_long: "is too long (5 is the maximum allowed)"}
 
   serialize :tags, Array
+
+  # so can keep one confirm ownership method
+  def user
+    writer
+  end
 end

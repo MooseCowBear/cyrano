@@ -1,13 +1,5 @@
-<!-- TODO: rework this, tabs and body partial will be drawn together... -->
 <% if current_user.writer %>
-  <%= render "tabs", active_tab: @active_tab %>
-  <% if @active_tab == "samples" %>
-    <p>writing samples placeholder</p>
-  <% elsif @active_tab == "earnings" %>
-    <p>earnings placeholder</p>
-  <% else %>
-    <%= render "writer_dashboard" %>
-  <% end %>
+  <%= render "writer_dashboard" %>
 <% else %>
   <%= render "client_dashboard" %>
 <% end %>

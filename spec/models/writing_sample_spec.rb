@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe WritingSample, type: :model do
   describe "valid attributes" do
-    it "is valid when it has a body and 5 of fewer tags" do
+    it "is valid when it has a body and 5 or fewer tags" do
       sample = build(:writing_sample, body: "something", tags: ["one", "two", "three", "four", "five"])
       expect(sample).to be_valid
     end

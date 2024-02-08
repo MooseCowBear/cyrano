@@ -17,7 +17,7 @@ class WritingSamplesController < ApplicationController
 
   def create
     @writing_sample = WritingSample.new(with_tags_array)
-    @writing_sample.user = current_user
+    @writing_sample.writer = current_user
 
     if @writing_sample.save
       redirect_to @writing_sample, notice: "Sample created."

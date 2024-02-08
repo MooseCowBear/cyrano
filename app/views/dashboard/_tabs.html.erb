@@ -1,5 +1,0 @@
-<nav class="mt-3 w-full grid grid-cols-3 gap-3">
-  <%= link_to "Dashboard", dashboard_path, class: "#{tab_classes(nil, active_tab)}" %>
-  <%= link_to "Writing Samples", dashboard_path(active_tab: "samples"), class: "#{tab_classes("samples", active_tab)}" %>
-  <%= link_to "Earnings", dashboard_path(active_tab: "earnings"), class: "#{tab_classes("earnings", active_tab)}" %>
-</nav>

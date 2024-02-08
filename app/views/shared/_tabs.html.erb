@@ -1,0 +1,7 @@
+<nav class="mt-3 w-full grid grid-cols-3 gap-3">
+  <%= link_to "Dashboard", dashboard_path, class: "#{tab_classes(nil, active_tab)}" %>
+  <%= link_to "Writing Samples", writing_samples_path, class: "#{tab_classes("samples", active_tab)}" %>
+  <%= link_to "Earnings", dashboard_path, class: "#{tab_classes("earnings", active_tab)}" %>
+</nav>
+
+<!-- TODO: update when have earnings -->
