@@ -20,7 +20,7 @@ class WritingSamplesController < ApplicationController
   end
 
   def create
-    @writing_sample = WritingSample.new(with_tags_array)
+    @writing_sample = WritingSample.new(with_tags_array) # need turbo stream
     @writing_sample.writer = current_user
 
     if @writing_sample.save
@@ -50,7 +50,7 @@ class WritingSamplesController < ApplicationController
   private
 
   def writing_sample_params
-    params.require(:writing_sample).permit(:title, :body, :tags)
+    params.require(:writing_sample).permit(:title, :body, :tags, :selected)
   end
 
   def set_writing_sample
@@ -59,6 +59,9 @@ class WritingSamplesController < ApplicationController
 
   # can this and profile specialties be DRYed out?
   def with_tags_array
-    writing_sample_params.merge(tags: writing_sample_params[:tags].split(/\s*,\s*/))
+    if writing_sample_params[:tags]
+      writing_sample_params.merge!(tags: writing_sample_params[:tags].split(/\s*,\s*/))
+    end
+    writing_sample_params
   end
 end
