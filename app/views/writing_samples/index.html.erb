@@ -2,7 +2,12 @@
 <div class="w-full flex justify-between items-center gap-5 mt-5">
   <div class="flex items-center gap-5">
     <h1 class="text-3xl font-semibold uppercase tracking-wider">My Samples</h1>
-    <%= link_to "Add a sample", new_writing_sample_path %>
+    <%= link_to new_writing_sample_path, class: "flex items-center" do %>
+      <svg class="h-5 w-5 fill-neutral-950" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+      </svg>
+      <span>Add a sample</span>
+    <% end %>
   </div>
   <%= render "help" %>
 </div>
