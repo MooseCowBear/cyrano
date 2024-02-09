@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :edit, :create, :update, :destroy, :show]
   resources :products
   resources :writing_samples
+  resources :writers, only: [:show, :index]
 
   root "home#index"
 end
