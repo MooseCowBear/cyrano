@@ -1,5 +1,5 @@
 <%= render "shared/tabs", active_tab: "dashboard" %>
-<div class="max-w-full flex flex-col gap-1">
+<div class="flex flex-col gap-1">
   <div class="flex flex-col gap-3">
     <div class="grid grid-cols-1 sm:grid-cols-[3fr_,2fr] gap-4">
       <section class="grid grid-rows-[auto,_1fr] p-5 shadow-md border border-neutral-200">
@@ -17,18 +17,11 @@
           <% end %>
         </div>
       </section>
-
-      <!-- TODO: where to incorporate writing samples??? -->
       <section class="p-5 flex flex-col gap-1 shadow-md border border-neutral-200">
-        <h3 class="uppercase tracking-wider font-semibold">Specialties</h3>
-        <div class="flex flex-wrap gap-3">
-          <% current_user.specialties.each do |specialty| %>
-            <span class="py-1 px-2 rounded bg-seafoam-100 text-neutral-100"><%= specialty %></span>
-          <% end %>
-        </div>
+        <%= render "shared/specialties", writer: current_user %>
       </section>
     </div>
-    <button class="self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50">View My Public Page</button>
+    <%= link_to "View My Public Page", writer_path(current_user), class: "self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
   </div>
   <section class="flex flex-col gap-1">
     <h3 class="uppercase tracking-wider font-semibold">I write</h3>

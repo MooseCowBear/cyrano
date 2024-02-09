@@ -8,9 +8,8 @@ class User < ApplicationRecord
   has_many :products, foreign_key: :writer_id, dependent: :destroy
   has_many :writing_samples, foreign_key: :writer_id, dependent: :destroy
 
-  def working?
-    !!profile
-  end
+  scope :writer, -> { where(writer: true) }
+  scope :working, -> { where.associated(:profile) }
 
   def initial
     if profile
