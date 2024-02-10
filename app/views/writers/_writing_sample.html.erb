@@ -1,0 +1,9 @@
+<div id="<%= dom_id(writing_sample) %>" class="p-5 flex flex-col gap-2 items-start">
+  <h2 class="font-semibold uppercase"><%= title(writing_sample) %></h2>
+  <p class="whitespace-pre-wrap"><%= writing_sample.body %></p>
+  <div class="flex gap-2">
+    <% writing_sample.tags.each do |specialty| %>
+      <span class="py-1 px-2 rounded bg-neutral-700 text-neutral-100"><%= specialty %></span>
+    <% end %>
+  </div>
+</div>
