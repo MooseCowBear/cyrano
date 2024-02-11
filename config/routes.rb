@@ -4,9 +4,13 @@ Rails.application.routes.draw do
   get "/dashboard", to: "dashboard#show"
 
   resources :profiles, only: [:new, :edit, :create, :update, :destroy, :show]
-  resources :products
+  resources :products, except: [:index]
   resources :writing_samples
   resources :writers, only: [:show, :index]
+
+  resources :writers do
+    resources :products, only: [:index]
+  end
 
   root "home#index"
 end

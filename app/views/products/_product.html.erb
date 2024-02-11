@@ -1,7 +1,9 @@
-<div id="<%= dom_id(product) %>" class="shrink-0 w-64 p-3 border rounded flex flex-col justify-between gap-3 ">
+<div id="<%= dom_id(product) %>" class="p-3 border rounded flex flex-col justify-between gap-3 ">
   <div>
     <h4 class="uppercase tracking-wider font-semibold mb-2"><%= product.title %></h4>
     <p class="text-neutral-500 leading-tight"><%= product.description %></p>
   </div>
-  <p class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$<%= product.price %></p>
+  <button class="py-1 px-2 rounded bg-seafoam-200 text-neutral-100 text-center">$<%= product.price %></button>
+  <!-- TODO: replace this with a sign in/add to cart kind of thing -->
 </div>
+

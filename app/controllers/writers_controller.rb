@@ -2,7 +2,7 @@ class WritersController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @writers = User.writer.working.includes(:profile)
+    @writers = User.writer.working
   end
 
   def show

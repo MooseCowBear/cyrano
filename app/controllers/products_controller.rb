@@ -4,8 +4,10 @@ class ProductsController < ApplicationController
     confirm_ownership(@product, "Only the creator of a product can modify it.")
   end
 
+  skip_before_action :authenticate_user!, only: [:index]
+
   def index
-    @products = current_user.products
+    @writer = User.writer.working.find(params[:writer_id])
   end
 
   def new

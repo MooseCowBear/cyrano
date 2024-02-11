@@ -6,4 +6,9 @@ class Product < ApplicationRecord
   validates :description, length: {in: 2..500}
 
   # MARK: probably a product should have a decription but should it be required?
+
+  # so can keep one confirm ownership method, writing sample also has this so could move to concern
+  def user
+    writer
+  end
 end

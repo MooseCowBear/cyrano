@@ -20,6 +20,9 @@ module.exports = {
           200: "#2b3933",
         },
       },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(300px, 1fr))",
+      },
     },
   },
   plugins: [
