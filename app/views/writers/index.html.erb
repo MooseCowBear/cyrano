@@ -1,5 +1,7 @@
 <!-- TODO: SEARCH FORM + pagination -->
 
-<div id="writers" class="flex flex-col gap-2">
-  <%= render @writers %>
+<div id="writers" class="flex flex-col gap-2 py-5">
+  <% @writers.each do |writer| %>
+    <%= render "writer", writer: writer %>
+  <% end %>
 </div>

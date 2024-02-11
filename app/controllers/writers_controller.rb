@@ -3,6 +3,7 @@ class WritersController < ApplicationController
 
   def index
     @writers = User.writer.working
+    pp @writers
   end
 
   def show
