@@ -8,10 +8,7 @@
       <%= link_to "Details", writer_path(writer), class: "lowercase px-5 py-1 flex items-center rounded-full bg-neutral-50 text-neutral-700" %>
     </div>
     <p><%= writer.profile.about %></p>
-    <div>
-      <h3 class="uppercase tracking-wider font-semibold">Specialties</h3>
-      <%= render "shared/specialties", writer: writer %>
-    </div>
+    <%= render "shared/specialties", writer: writer %>
   </div>
 </div>
 
