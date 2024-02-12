@@ -22,16 +22,21 @@ RSpec.describe "Writers", type: :request do
       expect(response).to have_http_status(:success)
     end
 
-    it "includes the user's display name" do
+    context "for a working writer" do
+      it "includes the user's display name" do
+      end
+
+      it "includes the user's about" do
+      end
+
+      it "includes user's selected writing samples" do
+      end
+
+      it "does not include user's non-selected writing samples" do
+      end
     end
 
-    it "includes the user's about" do
-    end
-
-    it "includes user's selected writing samples" do
-    end
-
-    it "does not include user's non-selected writing samples" do
+    context "for a non-working writer" do
     end
   end
 end

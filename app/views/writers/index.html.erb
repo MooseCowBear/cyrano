@@ -1,4 +1,8 @@
 <!-- TODO: SEARCH FORM + pagination -->
+<div class="flex justify-between items-center">
+  <p>search placeholder</p>
+  <%= render "shared/help", paragraphs: writers_help %>
+</div>
 
 <div id="writers" class="flex flex-col gap-2 py-5">
   <% @writers.each do |writer| %>
