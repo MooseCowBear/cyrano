@@ -23,14 +23,17 @@
     </div>
     <%= link_to "View My Public Page", writer_path(current_user), class: "self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
   </div>
-  <section class="flex flex-col gap-1">
+  <section class="flex flex-col gap-1 relative">
     <h3 class="uppercase tracking-wider font-semibold">I write</h3>
-    <div class="overflow-x-auto w-full flex gap-3">
+    <div id="products" class="overflow-x-auto w-full flex gap-3">
       <% current_user.products.each do |product| %>
         <%= render "product", product: product %>
       <% end %>
     </div>
-    <%= link_to "Add a product", new_product_path, class: "self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
+    <div class="absolute bottom-0 right-0 translate-y-[-10%]">
+      <%= turbo_frame_tag Product.new %>
+    </div>
+    <%= link_to "Add a product", new_product_path, data: { turbo_frame: dom_id(Product.new) }, class: "self-end tracking-wide border rounded-full py-1 border-neutral-700 py-1 px-5 hover:bg-neutral-700 hover:text-neutral-50" %>
   </section>
   <section class="flex flex-col gap-1">
     <h3 class="uppercase tracking-wider font-semibold">My Assignments</h3>
