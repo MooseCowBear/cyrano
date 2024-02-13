@@ -1,2 +1,2 @@
-<%= turbo_stream.replace "#{dom_id(@product)}", partial: "dashboard/product", locals: { product: @product }%>
+<%= turbo_stream.replace "#{dom_id(@product, :container)}", partial: "dashboard/product", locals: { product: @product }%>
 <%= turbo_stream.update "flash", partial: "layouts/flash" %>
