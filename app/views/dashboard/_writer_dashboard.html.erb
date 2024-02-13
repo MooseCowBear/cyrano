@@ -27,7 +27,9 @@
     <h3 class="uppercase tracking-wider font-semibold">I write</h3>
     <div id="products" class="overflow-x-auto w-full flex gap-3">
       <% current_user.products.each do |product| %>
-        <%= render "product", product: product %>
+        <div class="shrink-0 w-64 p-3 border rounded">
+          <%= render "product", product: product %>
+        </div>
       <% end %>
     </div>
     <div class="absolute bottom-0 right-0 translate-y-[-10%]">

@@ -33,7 +33,10 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: "Product updated"
+      respond_to do |format|
+        format.turbo_stream { flash.now[:notice] = "Product updated." }
+        format.html { redirect_to @product, notice: "Product updated" }
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +48,10 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
 
-    redirect_to dashboard_path, notice: "Product successfully removed."
+    respond_to do |format|
+      format.turbo_stream { flash.now[:notice] = "Product Deleted" }
+      format.html { redirect_to dashboard_path, notice: "Product successfully removed." }
+    end
   end
 
   private
