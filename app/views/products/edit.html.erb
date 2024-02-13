@@ -1,6 +1,8 @@
 <div class="w-[clamp(300px,_75vw,_600px)] bg-white mt-10 px-5 pt-10 pb-5 shadow-md border border-neutral-200">
   <h1 class="font-bold text-xl uppercase tracking-wider">Edit Product</h1>
+
   <%= render "form", product: @product %>
+  
   <%= link_to :back, class: "flex items-center mt-5" do %>
     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path fill="" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />

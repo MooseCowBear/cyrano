@@ -1,0 +1,3 @@
+<%= turbo_stream.append "products", partial: "dashboard/product", locals: { product: @product } %>
+<%= turbo_stream.remove "new_product" %>
+<%= turbo_stream.update "flash", partial: "layouts/flash" %>

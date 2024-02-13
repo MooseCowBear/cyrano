@@ -19,7 +19,10 @@ class ProductsController < ApplicationController
     @product.writer = current_user
 
     if @product.save
-      redirect_to @product, notice: "New product created."
+      respond_to do |format|
+        format.turbo_stream { flash.now[:notice] = "New product created." }
+        format.html { redirect_to @product, notice: "New product created." }
+      end
     else
       render :new, status: :unprocessable_entity
     end
